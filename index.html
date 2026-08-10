@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Knife Vault - Tienda Oficial de Cuchillos de Counter-Strike 2</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* VARIABLES DE TEMA CS2 */
+    :root {
+      --bg-dark: #0b0d12;
+      --bg-surface: #121620;
+      --bg-card: #181d2a;
+      --bg-card-hover: #1f2638;
+      --border-color: #2a3245;
+      
+      --accent-gold: #f5a623;
+      --accent-gold-hover: #ffb838;
+      --accent-orange: #ff5e00;
+      --accent-blue: #00a2ff;
+      --accent-purple: #9d4edd;
+      
+      --text-primary: #f0f4f8;
+      --text-secondary: #9da8b9;
+      --text-muted: #626e82;
+      
+      --success: #10b981;
+      --danger: #ef4444;
+      
+      --font-heading: 'Rajdhani', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      
+      --shadow-glow: 0 0 20px rgba(245, 166, 35, 0.2);
+      --transition-fast: 0.2s ease;
+      --transition-normal: 0.3s ease;
+    }
+
+    /* RESETS & ESTILOS BASE */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    /* HEADER / NAVEGACIÓN */
+    .top-bar {
+      background: linear-gradient(90deg, #121620 0%, #1a202c 100%);
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      padding: 0.5rem 2rem;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar-highlights {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .top-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .top-bar-item span.highlight {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    header {
+      background-color: rgba(18, 22, 32, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid rgba(245, 166, 35, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: #000;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .logo-text h1 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fff, var(--accent-gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .logo-text span {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-secondary);
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--accent-gold);
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-gold);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .cart-btn-main {
+      background: linear-gradient(135deg, rgba(245, 166, 35, 0.15), rgba(255, 94, 0, 0.15));
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .cart-btn-main:hover {
+      background: var(--accent-gold);
+      color: #000;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .cart-badge {
+      background-color: var(--accent-orange);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      background: radial-gradient(circle at 50% 30%, rgba(245, 166, 35, 0.08) 0%, rgba(11, 13, 18, 0.95) 70%),
+                  url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      padding: 4rem 2rem 5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245, 166, 35, 0.1);
+      border: 1px solid var(--accent-gold);
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      color: var(--accent-gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h2 {
+      font-family: var(--font-heading);
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    .hero h2 span {
+      color: var(--accent-gold);
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    /* SECCIÓN DE ESTADÍSTICAS & SATISFACCIÓN DE CLIENTES */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      background: rgba(24, 29, 42, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      backdrop-filter: blur(5px);
+      transition: var(--transition-normal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-4px);
+    }
+
+    .stat-card.featured-satisfaction {
+      background: linear-gradient(135deg, rgba(24, 29, 42, 0.95), rgba(34, 39, 51, 0.95));
+      border: 2px solid var(--accent-gold);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-stars {
+      color: #ffc107;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-subtext {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    /* CATÁLOGO DE CUCHILLOS */
+    .main-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 28px;
+      background-color: var(--accent-gold);
+      border-radius: 3px;
+    }
+
+    /* FILTROS Y BÚSQUEDA */
+    .filter-bar {
+      display: flex;
+      gap: 0.8rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-chip {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 0.5rem 1.2rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition-fast);
+    }
+
+    .filter-chip:hover, .filter-chip.active {
+      background: var(--accent-gold);
+      color: #000;
+      border-color: var(--accent-gold);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    /* TARJETA DE CUCHILLO */
+    .knife-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition-normal);
+      position: relative;
+    }
+
+    .knife-card:hover {
+      border-color: var(--accent-gold);
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(245, 166, 35, 0.15);
+    }
+
+    .knife-rarity-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .knife-float-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .knife-img-wrapper {
+      background: radial-gradient(circle, rgba(34, 39, 51, 0.8) 0%, rgba(24, 29, 42, 1) 100%);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .knife-img-wrapper img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.6));
+      transition: var(--transition-normal);
+    }
+
+    .knife-card:hover .knife-img-wrapper img {
+      transform: scale(1.08) rotate(-3deg);
+    }
+
+    .knife-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .knife-title {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+
+    .knife-wear {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .knife-wear-indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--success);
+    }
+
+    .knife-price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: auto;
+      margin-bottom: 1.2rem;
+    }
+
+    .knife-price {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+
+    .knife-old-price {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .btn-add-cart {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+      color: #000;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.75rem;
+      border-radius: 6px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: var(--transition-fast);
+    }
+
+    .btn-add-cart:hover {
+      box-shadow: var(--shadow-glow);
+      filter: brightness(1.1);
+    }
+
+    /* SECCIÓN DE CARACTERÍSTICAS DE TRADICIONALES */
+    .features-section {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      background: rgba(245, 166, 35, 0.1);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .feature-text p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* TESTIMONIOS Y SATISFACCIÓN */
+    .reviews-section {
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .review-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background-color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .review-user h5 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .review-user span {
+      font-size: 0.75rem;
+      color: var(--success);
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+    }
+
+    .review-stars {
+      color: #ffc107;
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      max-width: 900px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+    }
+
+    .faq-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 1.2rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: var(--transition-fast);
+    }
+
+    .faq-question:hover {
+      color: var(--accent-gold);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.2rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      display: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: 0.5rem;
+      padding-top: 1rem;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    /* PANEL DEL CARRITO (SLIDE DRAWER) */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: none;
+      justify-content: flex-end;
+    }
+
+    .cart-drawer-overlay.open {
+      display: flex;
+    }
+
+    .cart-drawer {
+      background-color: var(--bg-surface);
+      width: 100%;
+      max-width: 440px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
+      border-left: 1px solid var(--border-color);
+      animation: slideInRight 0.3s forwards;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    .cart-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-dark);
+    }
+
+    .cart-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .close-btn {
+      background: none;
+      color: var(--text-secondary);
+      font-size: 1.8rem;
+      line-height: 1;
+      transition: var(--transition-fast);
+    }
+
+    .close-btn:hover {
+      color: var(--accent-gold);
+    }
+
+    .cart-body {
+      padding: 1.5rem;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .cart-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cart-item-img {
+      width: 70px;
+      height: 60px;
+      object-fit: contain;
+      background: rgba(0,0,0,0.3);
+      border-radius: 6px;
+      padding: 0.2rem;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .cart-item-wear {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .cart-item-price {
+      font-family: var(--font-heading);
+      color: var(--accent-gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .cart-item-remove {
+      color: var(--danger);
+      background: none;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      border-radius: 4px;
+      transition: var(--transition-fast);
+    }
+
+    .cart-item-remove:hover {
+      background: rgba(239, 68, 68, 0.1);
+    }
+
+    .cart-footer {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-dark);
+    }
+
+    .cart-summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .cart-summary-row.total {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--text-primary);
+      border-top: 1px solid var(--border-color);
+      padding-top: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .cart-summary-row.total span:last-child {
+      color: var(--accent-gold);
+      font-family: var(--font-heading);
+    }
+
+    .btn-checkout-launch {
+      background: linear-gradient(135deg, var(--success), #059669);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      width: 100%;
+      padding: 0.9rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      letter-spacing: 1px;
+      transition: var(--transition-fast);
+    }
+
+    .btn-checkout-launch:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    }
+
+    /* MODAL DE CHECKOUT & PAGO */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .checkout-modal {
+      background: var(--bg-surface);
+      border: 1px solid var(--accent-gold);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 0 30px rgba(245, 166, 35, 0.25);
+    }
+
+    .checkout-modal-header {
+      padding: 1.5rem;
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .checkout-modal-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+    }
+
+    .checkout-modal-body {
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.8rem 1rem;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition-fast);
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 8px rgba(245, 166, 35, 0.3);
+    }
+
+    .payment-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .payment-card-option {
+      background: var(--bg-dark);
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1rem 0.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .payment-card-option:hover {
+      border-color: var(--accent-gold);
+    }
+
+    .payment-card-option.selected {
+      border-color: var(--accent-gold);
+      background: rgba(245, 166, 35, 0.1);
+    }
+
+    .payment-card-option input[type="radio"] {
+      display: none;
+    }
+
+    .payment-icon {
+      font-size: 1.8rem;
+    }
+
+    .payment-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .btn-pay-now {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-orange));
+      color: #000;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+      transition: var(--transition-fast);
+    }
+
+    .btn-pay-now:hover {
+      filter: brightness(1.1);
+      box-shadow: var(--shadow-glow);
+    }
+
+    /* FOOTER TRADICIONAL */
+    footer {
+      background-color: var(--bg-dark);
+      border-top: 1px solid var(--border-color);
+      padding: 4rem 2rem 2rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: var(--accent-gold);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .disclaimer-text {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--accent-gold);
+      color: var(--text-primary);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* MEDIA QUERIES PARA RESPONSIVIDAD */
+    @media (max-width: 768px) {
+      header {
+        padding: 0.8rem 1rem;
+      }
+      nav {
+        display: none; /* Simplificado para pantalla móvil */
+      }
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .top-bar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR DE CONFIANZA -->
+  <div class="top-bar">
+    <div class="top-bar-highlights">
+      <div class="top-bar-item">
+        ⭐ <span class="highlight">99.4% de Clientes Satisfechos</span> (+12,450 Reseñas)
+      </div>
+      <div class="top-bar-item">
+        ⚡ Entrega Automática por Bot en <span class="highlight">&lt; 3 minutos</span>
+      </div>
+    </div>
+    <div class="top-bar-highlights">
+      <div class="top-bar-item">🔒 Soporte 24/7 en Español</div>
+      <div class="top-bar-item">🛡️ Garantía de Intercambio Seguro</div>
+    </div>
+  </div>
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <header>
+    <div class="logo-container">
+      <div class="logo-icon">⚔️</div>
+      <div class="logo-text">
+        <h1>CS2 KNIVES</h1>
+        <span>Skins & Knife Vault</span>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#catalogo" class="active">Catálogo</a></li>
+        <li><a href="#por-que-nosotros">Beneficios</a></li>
+        <li><a href="#resenas">Reseñas (99.4%)</a></li>
+        <li><a href="#faq">Preguntas Frecuentes</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="cart-btn-main" onclick="toggleCart(true)">
+        🛒 Carrito <span class="cart-badge" id="cart-badge-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO BANNER CON METRICAS DE SATISFACCIÓN DE CLIENTES -->
+  <section class="hero">
+    <div class="hero-badge">🔥 Mercado #1 Auténtico de CS2</div>
+    <h2>Consigue los Cuchillos Más Legendarios de <span>CS2</span></h2>
+    <p>Consigue cuchillos exclusivos para Counter-Strike 2 con transferencia inmediata mediante Steam Trade Link. Precios directos, sin esperas y con garantía total.</p>
+
+    <!-- ESTADÍSTICAS Y PORCENTAJE DE CLIENTES SATISFECHOS -->
+    <div class="stats-container">
+      <div class="stat-card featured-satisfaction">
+        <div class="stat-number">99.4%</div>
+        <div class="stat-stars">★★★★★</div>
+        <div class="stat-label">Clientes Satisfechos</div>
+        <div class="stat-subtext">Basado en 12,480+ compras verificadas</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">+25,000</div>
+        <div class="stat-stars">🗡️</div>
+        <div class="stat-label">Cuchillos Entregados</div>
+        <div class="stat-subtext">Operaciones 100% exitosas</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">&lt; 3 min</div>
+        <div class="stat-stars">⚡</div>
+        <div class="stat-label">Tiempo de Entrega</div>
+        <div class="stat-subtext">Sistema automatizado vía Steam</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-stars">🛡️</div>
+        <div class="stat-label">Pagos Seguros</div>
+        <div class="stat-subtext">Encriptación bancaria SSL 256-bit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE CATÁLOGO Y PRODUCTOS -->
+  <main class="main-container" id="catalogo">
+    <div class="section-header">
+      <div>
+        <h3 class="section-title">Cuchillos Disponibles en Inventario</h3>
+        <p style="color: var(--text-muted); margin-top: 0.3rem;">Listos para entrega inmediata a tu cuenta de Steam</p>
+      </div>
+    </div>
+
+    <!-- BARRA DE FILTROS -->
+    <div class="filter-bar">
+      <button class="filter-chip active" onclick="filterKnives('all', this)">Todos los Cuchillos</button>
+      <button class="filter-chip" onclick="filterKnives('Karambit', this)">Karambit</button>
+      <button class="filter-chip" onclick="filterKnives('Butterfly', this)">Butterfly (Mariposa)</button>
+      <button class="filter-chip" onclick="filterKnives('M9 Bayonet', this)">M9 Bayonet</button>
+      <button class="filter-chip" onclick="filterKnives('Skeleton', this)">Skeleton Knife</button>
+      <button class="filter-chip" onclick="filterKnives('Talon', this)">Talon Knife</button>
+    </div>
+
+    <!-- GRID DE PRODUCTOS -->
+    <div class="catalog-grid" id="catalog-grid">
+      <!-- Se genera mediante JavaScript -->
+    </div>
+  </main>
+
+  <!-- POR QUÉ ELEGIRNOS (CARACTERÍSTICAS TRADICIONALES DE UNA WEB DE CONFIANZA) -->
+  <section class="features-section" id="por-que-nosotros">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon">🤖</div>
+        <div class="feature-text">
+          <h4>Bots de Steam Automatizados</h4>
+          <p>Al confirmar tu pago, nuestro bot te enviará la oferta de intercambio directamente a tu Trade Link de Steam.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">💎</div>
+        <div class="feature-text">
+          <h4>Inspección de Float & Patrón</h4>
+          <p>Garantizamos exactamente el float y el patrón que observas en la tarjeta del cuchillo.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">💳</div>
+        <div class="feature-text">
+          <h4>Pagos Multi-Plataforma</h4>
+          <p>Aceptamos tarjetas de crédito/débito, Criptomonedas, Steam Wallet, PayPal y métodos locales.</p>
+        </div>
+      </div>
+
+      <div class="feature-item">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-text">
+          <h4>Protección Antifraude</h4>
+          <p>Tus datos financieros están encriptados y nunca almacenamos tus credenciales de Steam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEÑAS Y PRUEBA DE SATISFACCIÓN (99.4%) -->
+  <section class="reviews-section" id="resenas">
+    <div class="section-header">
+      <div>
+        <h3 class="section-title">Lo que Dicen Nuestros Compradores</h3>
+        <p style="color: var(--text-muted); margin-top: 0.3rem;">Reseñas reales verificadas de la comunidad de Counter-Strike 2</p>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#f3a833;">A</div>
+          <div class="review-user">
+            <h5>Alex_CSGO</h5>
+            <span>✓ Compra Verificada (Karambit | Fade)</span>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Súper rápido. Compré un Karambit Fade y la oferta de intercambio llegó en menos de 2 minutos a mi cuenta de Steam. ¡Totalmente recomendado!"</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#00a2ff;">M</div>
+          <div class="review-user">
+            <h5>Mateo_Gamer</h5>
+            <span>✓ Compra Verificada (Butterfly Knife)</span>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Tenía dudas al principio sobre la seguridad del trade link, pero el proceso fue impecable. El 99.4% de satisfacción es real."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-header">
+          <div class="review-avatar" style="background:#9d4edd;">L</div>
+          <div class="review-user">
+            <h5>Lucas_ProPlayer</h5>
+            <span>✓ Compra Verificada (M9 Bayonet | Lore)</span>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excelente servicio de soporte. Tuve una duda con mi método de pago por tarjeta y me atendieron al instante por chat. Volveré a comprar."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ / PREGUNTAS FRECUENTES -->
+  <section class="faq-section" id="faq">
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <h3 class="section-title" style="justify-content: center;">Preguntas Frecuentes</h3>
+      <p style="color: var(--text-muted);">Resolvemos todas tus dudas sobre el proceso de compra e intercambio</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>¿Cómo recibo el cuchillo que compré?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        Al finalizar la compra e ingresar tu URL de Intercambio (Trade Link) de Steam, nuestro bot automatizado te enviará la oferta directamente a tu cuenta de Steam en cuestión de minutos.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>¿Dónde encuentro mi Trade Link de Steam?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        Puedes obtener tu Trade Link entrando a tu Perfil de Steam -&gt; Inventario -&gt; Ofertas de intercambio -&gt; ¿Quién puede enviarme ofertas de intercambio?.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span>¿Cuáles son los métodos de pago aceptados?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        Aceptamos Tarjetas de Crédito/Débito (Visa, Mastercard), Criptomonedas (USDT, BTC, ETH), Saldo de Steam Wallet, PayPal y MercadoPago.
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA (FOOTER TRADICIONAL COMPLETO) -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>CS2 KNIVES STORE</h4>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">El mercado independiente líder de compra y venta de aspectos y cuchillos de Counter-Strike 2 con máxima seguridad y valoración superior.</p>
+        <div style="color: var(--accent-gold); font-weight: bold; font-size: 0.9rem;">
+          ⭐ 99.4% Índice de Satisfacción
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#catalogo">Catálogo de Cuchillos</a></li>
+          <li><a href="#por-que-nosotros">Ventajas y Seguridad</a></li>
+          <li><a href="#resenas">Reseñas de Clientes</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal & Seguridad</h4>
+        <ul>
+          <li><a href="#">Términos de Servicio</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Política de Reembolsos</a></li>
+          <li><a href="#">Cumplimiento de Privacidad de Steam</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Métodos Aceptados</h4>
+        <div style="display: flex; gap: 0.5rem; font-size: 1.5rem; margin-top: 0.5rem; flex-wrap: wrap;">
+          💳 🪙 🎮 🅿️ 🏦
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.8rem;">Transacciones procesadas con cifrado SSL de 256 bits.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 CS2 Knives Vault. Todos los derechos reservados.</div>
+      <div class="disclaimer-text">
+        Este sitio no está afiliado, patrocinado ni respaldado por Valve Corporation, Counter-Strike o Steam. Counter-Strike y Steam son marcas registradas de Valve Corporation.
+      </div>
+    </div>
+  </footer>
+
+  <!-- PANEL LATERAL DE CARRITO -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="handleOverlayClick(event)">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3>🛒 Tu Carrito</h3>
+        <button class="close-btn" onclick="toggleCart(false)">&times;</button>
+      </div>
+
+      <div class="cart-body" id="cart-items-container">
+        <!-- Elementos del carrito dinámicos -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>Subtotal:</span>
+          <span id="cart-subtotal">$0.00</span>
+        </div>
+        <div class="cart-summary-row">
+          <span>Tarifa de Procesamiento:</span>
+          <span style="color: var(--success);">GRATIS</span>
+        </div>
+        <div class="cart-summary-row total">
+          <span>Total a Pagar:</span>
+          <span id="cart-total-price">$0.00</span>
+        </div>
+
+        <button class="btn-checkout-launch" onclick="openCheckout()">
+          Finalizar Compra ➔
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE CHECKOUT Y SELECCIÓN DE MÉTODO DE PAGO -->
+  <div class="modal-overlay" id="checkout-modal">
+    <div class="checkout-modal">
+      <div class="checkout-modal-header">
+        <h3>💳 Checkout & Método de Pago</h3>
+        <button class="close-btn" onclick="closeCheckout()">&times;</button>
+      </div>
+
+      <div class="checkout-modal-body">
+        <form id="checkout-form" onsubmit="handlePaymentSubmit(event)">
+          
+          <!-- RESUMEN CORTO DE ORDEN -->
+          <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; font-weight: bold;">
+              <span>Resumen de la Orden (<span id="modal-item-count">0</span> artículos):</span>
+              <span style="color: var(--accent-gold);" id="modal-total-amount">$0.00</span>
+            </div>
+          </div>
+
+          <!-- TRADE LINK DE STEAM -->
+          <div class="form-group">
+            <label for="trade-link">1. Tu URL de Intercambio (Trade Link de Steam): *</label>
+            <input type="text" id="trade-link" placeholder="https://steamcommunity.com/tradeoffer/new/?partner=..." required>
+            <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; display: block;">
+              Necesitamos tu Trade Link para enviarte automáticamente los cuchillos a tu inventario.
+            </span>
+          </div>
+
+          <!-- SELECCIÓN DE MÉTODO DE PAGO -->
+          <div class="form-group">
+            <label>2. Selecciona tu Método de Pago: *</label>
+            <div class="payment-options-grid">
+              <label class="payment-card-option selected" onclick="selectPaymentMethod('card', this)">
+                <input type="radio" name="payment_method" value="card" checked>
+                <span class="payment-icon">💳</span>
+                <span class="payment-label">Tarjeta Crédito / Débito</span>
+              </label>
+
+              <label class="payment-card-option" onclick="selectPaymentMethod('paypal', this)">
+                <input type="radio" name="payment_method" value="paypal">
+                <span class="payment-icon">🅿️</span>
+                <span class="payment-label">PayPal / MercadoPago</span>
+              </label>
+
+              <label class="payment-card-option" onclick="selectPaymentMethod('crypto', this)">
+                <input type="radio" name="payment_method" value="crypto">
+                <span class="payment-icon">🪙</span>
+                <span class="payment-label">Criptomonedas (USDT/BTC)</span>
+              </label>
+
+              <label class="payment-card-option" onclick="selectPaymentMethod('steam', this)">
+                <input type="radio" name="payment_method" value="steam">
+                <span class="payment-icon">🎮</span>
+                <span class="payment-label">Steam Wallet Card</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- DETALLES DE TARJETA O DATOS DINÁMICOS -->
+          <div id="card-details-group">
+            <div class="form-group">
+              <label for="card-number">Número de Tarjeta</label>
+              <input type="text" id="card-number" placeholder="4532 •••• •••• 8901">
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label for="card-exp">Expiración (MM/AA)</label>
+                <input type="text" id="card-exp" placeholder="12/28">
+              </div>
+              <div class="form-group">
+                <label for="card-cvv">CVC / CVV</label>
+                <input type="password" id="card-cvv" placeholder="•••" maxlength="4">
+              </div>
+            </div>
+          </div>
+
+          <!-- EMAIL PARA COMPROBANTE -->
+          <div class="form-group">
+            <label for="user-email">Correo Electrónico (para el recibo):</label>
+            <input type="email" id="user-email" placeholder="tu_email@ejemplo.com" required>
+          </div>
+
+          <button type="submit" class="btn-pay-now">
+            🔒 Confirmar y Pagar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICACIÓN TOAST -->
+  <div class="toast" id="toast-msg">
+    <span>⚔️</span>
+    <span id="toast-text">Producto añadido al carrito</span>
+  </div>
+
+  <!-- JAVASCRIPT DE LA PÁGINA -->
+  <script>
+    // BASE DE DATOS DE CUCHILLOS DE CS2 CON IMÁGENES REALES
+    const knivesData = [
+      {
+        id: 1,
+        name: "Karambit | Fade",
+        category: "Karambit",
+        wear: "Recién Fabricado (Factory New)",
+        floatVal: "0.011",
+        price: 1850.00,
+        oldPrice: 1990.00,
+        rarity: "Encubierto ★",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqIP1NG80bEkdYDOvILju_LsdsMY_EV2nLm0h_peZghg&s=10"
+      },
+      {
+        id: 2,
+        name: "Butterfly Knife | Doppler Phase 2",
+        category: "Butterfly",
+        wear: "Recién Fabricado (Factory New)",
+        floatVal: "0.008",
+        price: 2150.00,
+        oldPrice: 2300.00,
+        rarity: "Encubierto ★",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHob3b9cmfAmo_yIhB9pztCR1T4EjzpCNMfUTYnawddg&s=10"
+      },
+      {
+        id: 3,
+        name: "M9 Bayonet | Lore",
+        category: "M9 Bayonet",
+        wear: "Algo Desgastado (Field-Tested)",
+        floatVal: "0.185",
+        price: 980.00,
+        oldPrice: 1100.00,
+        rarity: "Encubierto ★",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpmxHz7gBvF2WUkltlu2vSeoxghBDK4nToIn-mmyWTig&s=10"
+      },
+      {
+        id: 4,
+        name: "Skeleton Knife | Crimson Web",
+        category: "Skeleton",
+        wear: "Casi Nuevo (Minimal Wear)",
+        floatVal: "0.092",
+        price: 1250.00,
+        oldPrice: 1380.00,
+        rarity: "Encubierto ★",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKwdYhKCKJlULuOhqSDMNIXFP6ReKz6LM0BAXuJTyV4A&s=10"
+      },
+      {
+        id: 5,
+        name: "Talon Knife | Marble Fade",
+        category: "Talon",
+        wear: "Recién Fabricado (Factory New)",
+        floatVal: "0.015",
+        price: 890.00,
+        oldPrice: 950.00,
+        rarity: "Encubierto ★",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFweujNPedA2JhKOFbyL7rXBRR-QBfaG_m1O1QU6KDdg&s=10"
+      },
+      {
+        id: 6,
+        name: "Karambit | Gamma Doppler (Phase 4)",
+        category: "Karambit",
+        wear: "Recién Fabricado (Factory New)",
+        floatVal: "0.007",
+        price: 1950.00,
+        oldPrice: 2100.00,
+        rarity: "Encubierto ★",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9IXqcEt8yPgi42fNKUZSChpc2li-gzA0Pe2iqyiTYeg&sf"
+      }
+    ];
+
+    let cart = [];
+
+    // RENDERIZAR TIENDA DE CUCHILLOS
+    function renderCatalog(items) {
+      const grid = document.getElementById('catalog-grid');
+      grid.innerHTML = items.map(knife => `
+        <div class="knife-card">
+          <span class="knife-rarity-tag">${knife.rarity}</span>
+          <span class="knife-float-tag">Float: ${knife.floatVal}</span>
+          <div class="knife-img-wrapper">
+            <img src="${knife.image}" alt="${knife.name}">
+          </div>
+          <div class="knife-info">
+            <h4 class="knife-title">${knife.name}</h4>
+            <div class="knife-wear">
+              <span class="knife-wear-indicator"></span>
+              ${knife.wear}
+            </div>
+            <div class="knife-price-row">
+              <div>
+                <span class="knife-price">$${knife.price.toFixed(2)}</span>
+                <span class="knife-old-price">$${knife.oldPrice.toFixed(2)}</span>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(${knife.id})">
+              🛒 Añadir al Carrito
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // FILTRAR PRODUCTOS
+    function filterKnives(category, buttonEl) {
+      document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
+      if (buttonEl) buttonEl.classList.add('active');
+
+      if (category === 'all') {
+        renderCatalog(knivesData);
+      } else {
+        const filtered = knivesData.filter(k => k.category === category);
+        renderCatalog(filtered);
+      }
+    }
+
+    // AÑADIR AL CARRITO
+    function addToCart(knifeId) {
+      const knife = knivesData.find(k => k.id === knifeId);
+      cart.push(knife);
+      updateCartUI();
+      showToast(`¡${knife.name} añadido al carrito!`);
+    }
+
+    // ELIMINAR DEL CARRITO
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    // ACTUALIZAR INTERFAZ DEL CARRITO
+    function updateCartUI() {
+      const container = document.getElementById('cart-items-container');
+      const badge = document.getElementById('cart-badge-count');
+      const subtotalEl = document.getElementById('cart-subtotal');
+      const totalEl = document.getElementById('cart-total-price');
+
+      badge.innerText = cart.length;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; color: var(--text-muted); margin-top: 3rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🗡️</div>
+            <p>Tu carrito está vacío.</p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;">Añade algún cuchillo para comenzar tu compra.</p>
+          </div>
+        `;
+        subtotalEl.innerText = '$0.00';
+        totalEl.innerText = '$0.00';
+        return;
+      }
+
+      container.innerHTML = cart.map((item, index) => `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+          <div class="cart-item-details">
+            <div class="cart-item-title">${item.name}</div>
+            <div class="cart-item-wear">${item.wear}</div>
+            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+          </div>
+          <button class="cart-item-remove" onclick="removeFromCart(${index})" title="Eliminar">✕</button>
+        </div>
+      `).join('');
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      subtotalEl.innerText = `$${total.toFixed(2)}`;
+      totalEl.innerText = `$${total.toFixed(2)}`;
+    }
+
+    // ABRIR / CERRAR PANEL LATERAL
+    function toggleCart(show) {
+      const overlay = document.getElementById('cart-drawer-overlay');
+      if (show) {
+        overlay.classList.add('open');
+      } else {
+        overlay.classList.remove('open');
+      }
+    }
+
+    function handleOverlayClick(event) {
+      if (event.target.id === 'cart-drawer-overlay') {
+        toggleCart(false);
+      }
+    }
+
+    // CHECKOUT MODAL
+    function openCheckout() {
+      if (cart.length === 0) {
+        showToast("⚠️ El carrito está vacío");
+        return;
+      }
+      toggleCart(false);
+
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      document.getElementById('modal-item-count').innerText = cart.length;
+      document.getElementById('modal-total-amount').innerText = `$${total.toFixed(2)}`;
+
+      document.getElementById('checkout-modal').classList.add('open');
+    }
+
+    function closeCheckout() {
+      document.getElementById('checkout-modal').classList.remove('open');
+    }
+
+    function selectPaymentMethod(method, element) {
+      document.querySelectorAll('.payment-card-option').forEach(el => el.classList.remove('selected'));
+      element.classList.add('selected');
+      element.querySelector('input').checked = true;
+
+      const cardGroup = document.getElementById('card-details-group');
+      if (method === 'card') {
+        cardGroup.style.display = 'block';
+      } else {
+        cardGroup.style.display = 'none';
+      }
+    }
+
+    function handlePaymentSubmit(event) {
+      event.preventDefault();
+      const tradeLink = document.getElementById('trade-link').value;
+      const email = document.getElementById('user-email').value;
+
+      if (!tradeLink.includes('steamcommunity.com')) {
+        alert("Por favor introduce una URL de intercambio (Trade Link) válida de Steam.");
+        return;
+      }
+
+      alert(`¡PAGO PROCESADO CON ÉXITO!
+
+Gracias por tu compra. Hemos enviado un recibo a ${email}.
+
+Tu oferta de intercambio de Steam será enviada en menos de 3 minutos al Trade Link proporcionado.`);
+      
+      cart = [];
+      updateCartUI();
+      closeCheckout();
+    }
+
+    // TOGGLE FAQ ACCORDION
+    function toggleFaq(element) {
+      const parent = element.parentElement;
+      parent.classList.toggle('active');
+    }
+
+    // MOSTRAR TOAST NOTIFICATION
+    function showToast(text) {
+      const toast = document.getElementById('toast-msg');
+      document.getElementById('toast-text').innerText = text;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // INICIALIZACIÓN
+    renderCatalog(knivesData);
+    updateCartUI();
+  </script>
+</body>
+</html>
