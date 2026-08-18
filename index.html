@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CS2 Knife Vault - Tienda Oficial de Cuchillos de Counter-Strike 2</title>
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -542,7 +541,7 @@
       filter: brightness(1.1);
     }
 
-    /* SECCIÓN DE CARACTERÍSTICAS DE TRADICIONALES */
+    /* SECCIÓN DE CARACTERÍSTICAS TRADICIONALES */
     .features-section {
       background-color: var(--bg-surface);
       border-top: 1px solid var(--border-color);
@@ -656,6 +655,56 @@
       font-size: 0.95rem;
       color: var(--text-secondary);
       font-style: italic;
+    }
+
+    /* ESTILOS DE LA SECCIÓN DE VIDEO DE INFORMÁTICA */
+    .video-section {
+      max-width: 1100px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      background-color: var(--bg-surface);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245, 166, 35, 0.1);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 0.7rem 1.4rem;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 1.5rem;
+      transition: var(--transition-fast);
+    }
+
+    .video-action-btn:hover {
+      background: var(--accent-gold);
+      color: #000;
+      box-shadow: var(--shadow-glow);
     }
 
     /* FAQ SECTION */
@@ -1135,7 +1184,6 @@
 </head>
 <body>
 
-  <!-- BARRA SUPERIOR DE CONFIANZA -->
   <div class="top-bar">
     <div class="top-bar-highlights">
       <div class="top-bar-item">
@@ -1151,7 +1199,6 @@
     </div>
   </div>
 
-  <!-- ENCABEZADO PRINCIPAL -->
   <header>
     <div class="logo-container">
       <div class="logo-icon">⚔️</div>
@@ -1166,6 +1213,7 @@
         <li><a href="#catalogo" class="active">Catálogo</a></li>
         <li><a href="#por-que-nosotros">Beneficios</a></li>
         <li><a href="#resenas">Reseñas (99.4%)</a></li>
+        <li><a href="#video-informatica">Video Informática</a></li>
         <li><a href="#faq">Preguntas Frecuentes</a></li>
       </ul>
     </nav>
@@ -1177,13 +1225,11 @@
     </div>
   </header>
 
-  <!-- HERO BANNER CON METRICAS DE SATISFACCIÓN DE CLIENTES -->
   <section class="hero">
     <div class="hero-badge">🔥 Mercado #1 Auténtico de CS2</div>
     <h2>Consigue los Cuchillos Más Legendarios de <span>CS2</span></h2>
     <p>Consigue cuchillos exclusivos para Counter-Strike 2 con transferencia inmediata mediante Steam Trade Link. Precios directos, sin esperas y con garantía total.</p>
 
-    <!-- ESTADÍSTICAS Y PORCENTAJE DE CLIENTES SATISFECHOS -->
     <div class="stats-container">
       <div class="stat-card featured-satisfaction">
         <div class="stat-number">99.4%</div>
@@ -1215,7 +1261,6 @@
     </div>
   </section>
 
-  <!-- SECCIÓN DE CATÁLOGO Y PRODUCTOS -->
   <main class="main-container" id="catalogo">
     <div class="section-header">
       <div>
@@ -1224,7 +1269,6 @@
       </div>
     </div>
 
-    <!-- BARRA DE FILTROS -->
     <div class="filter-bar">
       <button class="filter-chip active" onclick="filterKnives('all', this)">Todos los Cuchillos</button>
       <button class="filter-chip" onclick="filterKnives('Karambit', this)">Karambit</button>
@@ -1234,13 +1278,10 @@
       <button class="filter-chip" onclick="filterKnives('Talon', this)">Talon Knife</button>
     </div>
 
-    <!-- GRID DE PRODUCTOS -->
     <div class="catalog-grid" id="catalog-grid">
-      <!-- Se genera mediante JavaScript -->
-    </div>
+      </div>
   </main>
 
-  <!-- POR QUÉ ELEGIRNOS (CARACTERÍSTICAS TRADICIONALES DE UNA WEB DE CONFIANZA) -->
   <section class="features-section" id="por-que-nosotros">
     <div class="features-grid">
       <div class="feature-item">
@@ -1277,7 +1318,6 @@
     </div>
   </section>
 
-  <!-- RESEÑAS Y PRUEBA DE SATISFACCIÓN (99.4%) -->
   <section class="reviews-section" id="resenas">
     <div class="section-header">
       <div>
@@ -1325,7 +1365,25 @@
     </div>
   </section>
 
-  <!-- FAQ / PREGUNTAS FRECUENTES -->
+  <section class="video-section" id="video-informatica">
+    <div class="section-header" style="justify-content: center; text-align: center;">
+      <div>
+        <h3 class="section-title" style="justify-content: center;">💻 Video de Informática</h3>
+        <p style="color: var(--text-muted); margin-top: 0.3rem;">Consulta nuestro material audiovisual explicativo en alta definición</p>
+      </div>
+    </div>
+
+    <div class="video-container">
+      <iframe src="https://streamable.com/e/fsw0b9" allowfullscreen></iframe>
+    </div>
+
+    <div style="text-align: center;">
+      <a href="https://streamable.com/fsw0b9?src=player-page-share" target="_blank" rel="noopener noreferrer" class="video-action-btn">
+        ▶️ Ver Video Directamente en Streamable
+      </a>
+    </div>
+  </section>
+
   <section class="faq-section" id="faq">
     <div style="text-align: center; margin-bottom: 2rem;">
       <h3 class="section-title" style="justify-content: center;">Preguntas Frecuentes</h3>
@@ -1363,15 +1421,11 @@
     </div>
   </section>
 
-  <!-- PIE DE PÁGINA (FOOTER TRADICIONAL COMPLETO) -->
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
         <h4>CS2 KNIVES STORE</h4>
         <p style="color: var(--text-muted); margin-bottom: 1rem;">El mercado independiente líder de compra y venta de aspectos y cuchillos de Counter-Strike 2 con máxima seguridad y valoración superior.</p>
-        <div style="color: var(--accent-gold); font-weight: bold; font-size: 0.9rem;">
-          <a href="https://streamable.com/fsw0b9?src=player-page-share"></a>
-        </div>
       </div>
 
       <div class="footer-col">
@@ -1380,6 +1434,7 @@
           <li><a href="#catalogo">Catálogo de Cuchillos</a></li>
           <li><a href="#por-que-nosotros">Ventajas y Seguridad</a></li>
           <li><a href="#resenas">Reseñas de Clientes</a></li>
+          <li><a href="#video-informatica">Video de Informática</a></li>
           <li><a href="#faq">Preguntas Frecuentes</a></li>
         </ul>
       </div>
@@ -1411,7 +1466,6 @@
     </div>
   </footer>
 
-  <!-- PANEL LATERAL DE CARRITO -->
   <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="handleOverlayClick(event)">
     <div class="cart-drawer">
       <div class="cart-header">
@@ -1420,8 +1474,7 @@
       </div>
 
       <div class="cart-body" id="cart-items-container">
-        <!-- Elementos del carrito dinámicos -->
-      </div>
+        </div>
 
       <div class="cart-footer">
         <div class="cart-summary-row">
@@ -1444,7 +1497,6 @@
     </div>
   </div>
 
-  <!-- MODAL DE CHECKOUT Y SELECCIÓN DE MÉTODO DE PAGO -->
   <div class="modal-overlay" id="checkout-modal">
     <div class="checkout-modal">
       <div class="checkout-modal-header">
@@ -1455,7 +1507,6 @@
       <div class="checkout-modal-body">
         <form id="checkout-form" onsubmit="handlePaymentSubmit(event)">
           
-          <!-- RESUMEN CORTO DE ORDEN -->
           <div style="background: var(--bg-dark); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid var(--border-color);">
             <div style="display: flex; justify-content: space-between; font-weight: bold;">
               <span>Resumen de la Orden (<span id="modal-item-count">0</span> artículos):</span>
@@ -1463,7 +1514,6 @@
             </div>
           </div>
 
-          <!-- TRADE LINK DE STEAM -->
           <div class="form-group">
             <label for="trade-link">1. Tu URL de Intercambio (Trade Link de Steam): *</label>
             <input type="text" id="trade-link" placeholder="https://steamcommunity.com/tradeoffer/new/?partner=..." required>
@@ -1472,7 +1522,6 @@
             </span>
           </div>
 
-          <!-- SELECCIÓN DE MÉTODO DE PAGO -->
           <div class="form-group">
             <label>2. Selecciona tu Método de Pago: *</label>
             <div class="payment-options-grid">
@@ -1502,7 +1551,6 @@
             </div>
           </div>
 
-          <!-- DETALLES DE TARJETA O DATOS DINÁMICOS -->
           <div id="card-details-group">
             <div class="form-group">
               <label for="card-number">Número de Tarjeta</label>
@@ -1520,7 +1568,6 @@
             </div>
           </div>
 
-          <!-- EMAIL PARA COMPROBANTE -->
           <div class="form-group">
             <label for="user-email">Correo Electrónico (para el recibo):</label>
             <input type="email" id="user-email" placeholder="tu_email@ejemplo.com" required>
@@ -1534,13 +1581,11 @@
     </div>
   </div>
 
-  <!-- NOTIFICACIÓN TOAST -->
   <div class="toast" id="toast-msg">
     <span>⚔️</span>
     <span id="toast-text">Producto añadido al carrito</span>
   </div>
 
-  <!-- JAVASCRIPT DE LA PÁGINA -->
   <script>
     // BASE DE DATOS DE CUCHILLOS DE CS2 CON IMÁGENES REALES
     const knivesData = [
@@ -1796,9 +1841,8 @@ Tu oferta de intercambio de Steam será enviada en menos de 3 minutos al Trade L
     }
 
     // INICIALIZACIÓN
-    renderCatalog(knivesData)
+    renderCatalog(knivesData);
     updateCartUI();
-    <link rel="preconnect" href="https://streamable.com/fsw0b9?src=player-page-share">
   </script>
 </body>
 </html>
